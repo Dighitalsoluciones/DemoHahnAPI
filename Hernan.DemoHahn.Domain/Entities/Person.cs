@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hernan.DemoHahn.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,17 @@ using System.Threading.Tasks;
 
 namespace Hernan.DemoHahn.Domain.Entities
 {
-    internal class Person
+    public class Person
     {
+        public Guid Id { get; init; } 
+        public PersonName Name { get; private set; }
+        public Person(Guid id)
+        {
+            this.Id = id;
+        }
+        public void SetName(PersonName name)
+        {
+            Name = name;
+        }
     }
 }
