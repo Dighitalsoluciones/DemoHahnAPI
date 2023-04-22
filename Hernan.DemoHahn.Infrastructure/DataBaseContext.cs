@@ -16,6 +16,10 @@ namespace Hernan.DemoHahn.Infrastructure
             {
                 o.HasKey(x => x.Id);
             });
+            modelBuilder.Entity<Person>().OwnsOne(o => o.Name, Conf =>
+            {
+                Conf.Property(x => x.Value).HasColumnName("Name");
+            });
             base.OnModelCreating(modelBuilder);
         }
     }
